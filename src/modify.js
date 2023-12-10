@@ -1,24 +1,23 @@
+const clickButton = document.querySelector("#click-button");
 
-const clickCounterHandler = (e) => {
-  if (e && e.target){
-    let currDataclicks = e.target.dataset.clicks;
-    currDataclicks = Number(currDataclicks);
-    if (!isNaN(currDataclicks)) {
-    currDataclicks += 1
-    console.log(currDataclicks)
-    }
+const clickCounterHandler = () => {
+  let clicks = clickButton.getAttribute("data-clicks");
 
-    if (event.target.dataset.clicks == 1) {
-        event.target.textContent = "I've been clicked 1 time.";
-      } else {
-        event.target.textContent = `I've been clicked ${event.target.dataset.clicks} times!`;
-      }
+  let clicksToNum = Number(clicks);
+  clicksToNum++
+ clickButton.setAttribute("data-clicks", clicksToNum.toString());
+ if (clicksToNum === 0){
+  clickButton.textContent = "I haven't been clicked!";
+} else if (clicksToNum === 1){
+  clickButton.textContent = "I've been clicked 1 time.";
+} else {
+  clickButton.textContent =`I've been clicked ${clicksToNum} times!`;
+}
+}
 
-      console.log(event.target.textContent)
-  }
-};
-document.addEventListener("click", clickCounterHandler);
-clickCounterHandler();
+clickButton.addEventListener("click", clickCounterHandler);
+
+// get access to button's "data-clicks" attribute, turn string into num +1 then back to string
 
 
 
