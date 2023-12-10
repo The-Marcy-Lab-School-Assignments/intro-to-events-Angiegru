@@ -50,8 +50,18 @@ const handleDelegation = (e) => {
 
 div.addEventListener("click", handleDelegation);
 
+////
+const randomNumButton = document.querySelector("#add-random-num");
+
 const addNewRandomNumber = () => {
+  const newListItem = document.createElement("li");
+  const randomNum = Math.random() * (200 - 1) + 1;
+  newListItem.textContent = `${randomNum}`;
+  const listOfRandomNums = document.querySelector('#random-numbers');
+  listOfRandomNums.appendChild(newListItem);
 };
+
+randomNumButton.addEventListener("click", addNewRandomNumber);
 
 const main = () => {
   const delegationContainer = document.querySelector('#delegation');
