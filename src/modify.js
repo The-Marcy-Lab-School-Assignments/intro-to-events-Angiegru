@@ -63,9 +63,14 @@ const addNewRandomNumber = () => {
 
 randomNumButton.addEventListener("click", addNewRandomNumber);
 
+////
+const removeButton = document.querySelector('#remove');
+removeButton.addEventListener("click", () => {
+  document.querySelector('#delegation').removeEventListener('click', handleDelegation);
+})
+
 const main = () => {
   const delegationContainer = document.querySelector('#delegation');
-
   delegationContainer.addEventListener('click', handleDelegation);
 };
 
