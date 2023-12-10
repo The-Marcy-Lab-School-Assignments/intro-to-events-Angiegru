@@ -1,29 +1,25 @@
 const clickButton = document.querySelector("#click-button");
 
-const clickCounterHandler = () => {
-  let clicks = clickButton.getAttribute("data-clicks");
+const clickCounterHandler = (button) => {
+  let clicks = button.getAttribute("data-clicks");
 
   let clicksToNum = Number(clicks);
     clicksToNum++
-  clickButton.setAttribute("data-clicks", clicksToNum.toString());
-  if (clicksToNum === 0){
-    clickButton.textContent = "I haven't been clicked!";
-  } else if (clicksToNum === 1){
-    clickButton.textContent = "I've been clicked 1 time.";
-  } else {
-    clickButton.textContent =`I've been clicked ${clicksToNum} times!`;
+  button.setAttribute("data-clicks", clicksToNum.toString());
+  if (clicksToNum === 1){
+    button.textContent = "I've been clicked 1 time.";
+  } else if (clicksToNum > 1){
+    button.textContent =`I've been clicked ${clicksToNum} times!`;
   }
 };
 
-clickButton.addEventListener("click", clickCounterHandler);
+clickButton.addEventListener("click", () => clickCounterHandler(clickButton));
 
 const keydownTracker = document.querySelector("#keydown-tracker");
 const body = document.querySelector('body');
 
-// add a event listener on body
+// should track the last key code pressed , event.code
 const handleKeydown = (e) => {
-// should track the last key code pressed , event.key
-// modify the textcontent of the `p` tag with an id of `keydown-tracker` with 'You pressed KeyA', 'You pressed Space', 'You pressed Enter'
 if (e.code === "Enter"){
   keydownTracker.textContent = `You pressed Enter`;
 } else if (e.code === "KeyA"){
@@ -32,11 +28,13 @@ if (e.code === "Enter"){
   keydownTracker.textContent = `You pressed Space`;
 }
 };
-body.addEventListener("keydown", handleKeydown);
+body.addEventListener("keydown", handleKeydown); // add a event listener on body
 
+// remove click handler in the html +
+// add an event listener and use handler from question 1
+const inlineButton = document.querySelector("#inline-example");
+inlineButton.addEventListener("click",() => clickCounterHandler(inlineButton) );
 const handleDelegation = () => {
-  // const resultSpan = document.querySelector('#delegation-result');
-  // resultSpan.textContent = event.target.textContent;
 };
 
 const addNewRandomNumber = () => {
