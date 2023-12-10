@@ -24,7 +24,7 @@ Don't forget to do them! They go over bigger concepts than just the code.
 
 
 # Question 1: clickCounterHandler - modify.js
-As you can see in our HTML we have a button `#click-button`. Create a click event listener that uses a function `clickCounterHandler` to track the number of clicks. With each click of the button 2 things should happen:
+As you can see in our HTML we have a button `#click-button`. Create a click event listener that uses a function `clickCounterHandler` to track the number of clicks. With each click of the button 2 things should happen: 
 - update the data-clicks attribute on the button with the right number
 - update the text of the button to tell us how many times its been clicked
 
